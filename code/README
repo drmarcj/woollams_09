@@ -1,0 +1,21 @@
+Code for running and testing the simulator
+
+pt_train: trains the network. Current binary is for MacOS Intel, but it 
+should compile for any other kind of system. Try to use BLAS and Altivec 
+extensions if at all possible.
+
+To train the model you do something like this:
+pt_train -rpat repeating.pat -gpat gen.pat -spat speaking.pat  -hpat 
+hearing.pat
+
+nb the published version of this model was trained to 3.5M iterations, and 
+was tested using those final weights. I ran 10 sims with different seeds 
+(if you need to do this, please note currently seed is hard coded!) That 
+created 10  individual 'subjects'
+
+eval_hearing, eval_speaking: tests the network. This also requires...
+mapping, sem_mapping: vectors for the phonology or semantics, so we can 
+compare outputs to what is 'correct'
+
+Please see analyzeit.sh in ../utilities for an example of how I run these
+
